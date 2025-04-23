@@ -1,0 +1,14 @@
+<header>
+    <div class="name">
+        <img src="../../../../assets/globe.png" alt="">
+        <h2>B-universal</h2>
+    </div>
+
+    <div class="links">
+        <a *ngIf="!showButton" href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        <a *ngIf="!showButton" href=""><i class="fa-solid fa-heart"></i></a>
+        <a *ngIf="showButton" (click)="OpencategoryForm()">Add Category</a>
+        <a href=""><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</header>

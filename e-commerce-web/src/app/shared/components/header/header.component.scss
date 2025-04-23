@@ -1,0 +1,50 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5em;
+  border-radius: 0em 0em 1.5em 1.5em;
+  position: fixed;
+  top: 2%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  .name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 0em 1em 1em 0em;
+    img {
+      width: 3em;
+      margin: 1em 0.8em 1em 2em;
+    }
+    h2 {
+      margin-top: 0.6em;
+      margin-right: 1.5em;
+      font-size: 2em;
+      font-weight: 400;
+    }
+  }
+  .links {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    width: fit-content;
+    background-color: white;
+    padding:0.5em;
+    border-radius: 1em 0em 0em 1em;
+
+    a {
+      margin: 1em 0.8em 1em 2em;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
