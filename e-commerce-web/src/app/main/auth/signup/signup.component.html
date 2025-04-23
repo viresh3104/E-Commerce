@@ -1,0 +1,76 @@
+<div class="login-container">
+  <div class="logo">StackShop</div>
+  <div class="tag-line">Push your cart, pop the deals.</div>
+
+  <div class="login_form">
+    <div class="desc">
+      <p>
+        Create Your New Account <br> on StackShop and keep one sep ahead of trends. . .
+      </p>
+      <img src="assets/cart.png" alt="" />
+    </div>
+
+    <form #form="ngForm" (ngSubmit)="signup(form)">
+      <!-- name -->
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Enter Your Full Name</mat-label>
+        <input matInput type="text" name="name" placeholder="e.g virat kohli" [(ngModel)]="user.name"
+          #nameField="ngModel" required />
+        <mat-error *ngIf="nameField.invalid && (nameField.touched || form.submitted)">
+          <span *ngIf="nameField.errors?.['required']">Name is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <!-- email -->
+      <mat-form-field appearance="fill" class="form-group" id="emailField" style="width: 60%;">
+        <mat-label>Enter Your Email</mat-label>
+        <input matInput type="email" name="email" placeholder="abc@example.com" [(ngModel)]="user.email"
+          #emailField="ngModel" required email />
+        <mat-error *ngIf="emailField.invalid && (emailField.touched || form.submitted)">
+          <span *ngIf="emailField.errors?.['required']">Email is required</span>
+          <span *ngIf="emailField.errors?.['email']">Invalid email format</span>
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <!-- password -->
+      <mat-form-field appearance="fill" class="form-group" id="passwordField" style="width: 60%;">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" placeholder="Enter a strong password"
+          [(ngModel)]="user.password" #passwordField="ngModel" required minlength="8" />
+
+        <mat-error *ngIf="passwordField.invalid && (passwordField.touched || form.submitted)">
+          <span *ngIf="passwordField.errors?.['required']">Password is required</span>
+          <span *ngIf="passwordField.errors?.['minlength']">
+            Password must be at least 8 characters
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <!-- confirm password -->
+      <mat-form-field appearance="fill" class="form-group" id="confirmpasswordField" style="width: 60%;">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" name="confirmpassword" placeholder="Confirm Your Password"
+          [(ngModel)]="user.confirmpassword" #ConfirmpasswordField="ngModel" required minlength="8" />
+
+        <mat-error *ngIf="ConfirmpasswordField.invalid && (ConfirmpasswordField.touched || form.submitted)">
+          <span *ngIf="ConfirmpasswordField.errors?.['required']">Confirm Your Password</span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="btn-container">
+        <button class="btn" id="register" type="submit" (click)="signup(form)">
+          Register
+        </button>
+        <br>
+        <button class="btn" id="login" type="button" (click)="backTologin()">Back to SignIn</button>
+      </div>
+    </form>
+
+  </div>
+</div>

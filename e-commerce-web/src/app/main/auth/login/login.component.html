@@ -1,0 +1,56 @@
+<div class="login-container">
+  <div class="logo">StackShop</div>
+  <div class="tag-line">Push your cart, pop the deals.</div>
+
+  <div class="login_form">
+    <div class="desc">
+      <p>
+        Welcome back! <br>
+        signIn with mail or mobile number to continue...
+      </p>
+      <img src="assets/cart.png" alt="" />
+    </div>
+
+    <form #form="ngForm" (ngSubmit)="login(form)">
+      <mat-form-field appearance="fill" class="form-group">
+        <mat-label>Enter Your Email</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="userD.email" #emailField="ngModel" required email />
+        <mat-error *ngIf="emailField.invalid && (emailField.touched || form.submitted)">
+          <span *ngIf="emailField.errors?.['required']">Email is required</span>
+          <span *ngIf="emailField.errors?.['email']">Invalid email format</span>
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field appearance="fill" class="form-group" id="passwordField">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" placeholder="Enter a Your password" [(ngModel)]="userD.password"
+          #passwordField="ngModel" required minlength="8" />
+
+        <mat-error *ngIf="passwordField.invalid && (passwordField.touched || form.submitted)">
+          <span *ngIf="passwordField.errors?.['required']">Password is required</span>
+          <span *ngIf="passwordField.errors?.['minlength']">
+            Password must be at least 8 characters
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="fpass">
+        <a (click)="fpass()">Forget Password :)</a>
+      </div>
+
+      <div class="btn-container">
+        <button class="btn" id="login" (click)="login(form)">Login</button> <br />
+        <button class="btn" id="register" (click)="signup()">
+          New User? Register
+        </button>
+
+        <button type="button" class="login-with-google-btn">
+          Sign in with Google
+        </button>
+
+      </div>
+    </form>
+  </div>
+</div>
