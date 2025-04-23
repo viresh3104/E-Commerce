@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="dashboard">
+    <section class="carousel" aria-label="Image Carousel">
+        <div class="carousel__viewport">
+            <div class="carousel__slide">
+                <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="Slide 1">
+            </div>
+            <div class="carousel__slide">
+                <img src="https://images.pexels.com/photos/1229042/pexels-photo-1229042.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="Slide 2">
+            </div>
+            <div class="carousel__slide">
+                <img src="https://theclippingpathservice.com/wp-content/uploads/2022/01/Best-Size-For-ecommerce-Product-Images.png"
+                    alt="Slide 3">
+            </div>
+            <div class="carousel__slide">
+                <img src="https://theclippingpathservice.com/wp-content/uploads/2022/01/Best-Size-For-ecommerce-Product-Images.png"
+                    alt="Slide 4">
+            </div>
+        </div>
+    </section>
+
+    <app-category-card *ngFor="let category of allCategories" [category]="category"></app-category-card>
+</div>

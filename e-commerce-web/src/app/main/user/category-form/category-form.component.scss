@@ -1,0 +1,27 @@
+#category {
+  width: 15em;
+}
+
+#description {
+  width: 30em;
+  margin-top: 0.3em;
+}
+
+mat-dialog-actions {
+  button {
+    position: relative;
+    left: 65%;
+    width: 10em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.7em;
+    background-color: rgb(24, 170, 255);
+    font-size: 1.2em;
+    // color: white;
+    margin-bottom: 0.5em;
+  }
+}
+
+mat-dialog-content {
+  padding: 0px 2em !important;
+}

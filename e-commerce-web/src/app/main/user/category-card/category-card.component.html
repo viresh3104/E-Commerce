@@ -1,0 +1,19 @@
+<div class="category-swimlane">
+    <div class="heading">
+        <div class="category-name">
+            <p>{{ category.name }}</p>
+        </div>
+        <div class="actions">
+            <button *ngIf="!categoryShowButton" id="view-all"
+                style="background: none; border: 0px; cursor: pointer; margin-right: 2em;  font-size: 1em;">View
+                All</button>
+            <button *ngIf="categoryShowButton" id="edit"
+                style="background: none; border: 0px; cursor: pointer; margin-right: 2em;  font-size: 1em;">Edit
+                Category</button>
+        </div>
+    </div>
+
+    <div class="top-products">
+
+    </div>
+</div>

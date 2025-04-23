@@ -1,0 +1,32 @@
+.category-swimlane {
+  border: 1px solid black;
+  margin: 3em 5em 0em 5em;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  height: 23em;
+  background-color: white;
+  .heading {
+    border: 1px solid black;
+
+    height: 2.5em;
+    color: rgb(36, 35, 33);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .category-name {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.3em 1em;
+      p {
+        margin: 0em;
+      }
+    }
+  }
+  .top-products {
+    border: 1px solid black;
+    height: 20em;
+  }
+}

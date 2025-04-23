@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Add New Category</h2>
+<mat-dialog-content>
+    <form [formGroup]="categoryForm">
+        <mat-form-field id="category">
+            <mat-label>Category Name</mat-label>
+            <input matInput placeholder="Category Name*" formControlName='name' type="text" required>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('required')">Category Name is required</mat-error>
+            <mat-error *ngIf="categoryForm.get('name')?.hasError('minlength')">Minimum 5 character</mat-error>
+        </mat-form-field>
+
+        <mat-form-field id="description">
+            <mat-label>Category Description</mat-label>
+            <input matInput placeholder="Category Description (optional)" formControlName='description' type="text">
+            <mat-error *ngIf="categoryForm.get('description')?.hasError('maxlength')">Maximum 100 character</mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button type="submit" [disabled]="categoryForm.invalid" (click)="onCreate()">Create</button>
+</mat-dialog-actions>

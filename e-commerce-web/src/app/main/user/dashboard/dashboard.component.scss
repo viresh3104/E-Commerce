@@ -1,0 +1,49 @@
+.dashboard {
+  background-color: #dbdbd0;
+  height: 100vw;
+  padding-top: 8em;
+  display: flex;
+  flex-direction: column;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.carousel__viewport {
+  display: flex;
+  width: 100%;
+  animation: slide 16s infinite ease-in-out;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.carousel__slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes slide {
+  0%,
+  25% {
+    transform: translateX(0);
+  }
+  27%,
+  50% {
+    transform: translateX(-100%);
+  }
+  52%,
+  75% {
+    transform: translateX(-200%);
+  }
+  77%,
+  100% {
+    transform: translateX(-300%);
+  }
+}
