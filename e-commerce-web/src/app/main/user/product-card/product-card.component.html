@@ -1,1 +1,36 @@
-<p>product-card works!</p>
+<div class="each_product">
+
+    <div class="image">
+        <img [src]="product.image_urls[0]" alt="">
+    </div>
+
+    <div class="product_detail">
+
+        <div class="name_and_brand">
+            <div class="name">
+                <p>{{product.name}}</p>
+            </div>
+
+            <div class="product_actions" *ngIf="!isAdmin">
+                <i class="fas fa-cart-plus" style="color: #000000;"></i>
+                <i class="fa-solid fa-heart-circle-plus" id="wishlist" style="color: #000000;"></i>
+            </div>
+        </div>
+
+        <div class="price_and_brand">
+            <div class="price">
+                <p *ngIf="product.discountedPrice">
+                    MRP <span class="discounted-price">₹{{ product.discountedPrice }}</span>
+                    <span class="original-price">₹{{ product.price }}</span>
+                </p>
+                <p *ngIf="!product.discountedPrice">
+                    MRP <span>₹{{ product.price }}</span>
+                </p>
+            </div>
+
+            <div class="brand">
+                <p>{{product.brand}}</p>
+            </div>
+        </div>
+    </div>
+</div>

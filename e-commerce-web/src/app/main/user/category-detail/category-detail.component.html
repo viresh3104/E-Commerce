@@ -1,1 +1,30 @@
-<p>category-detail works!</p>
+<app-header></app-header>
+
+<div class="outer">
+    <div class="category_heading">
+
+    </div>
+
+    <div class="actions">
+        <div class="actions1">
+            <i id="back-arrow" class="fa-solid fa-arrow-left" style="cursor: pointer;" (click)="gotoDashboard()"></i>
+
+        </div>
+
+        <div class="actions2">
+            <button *ngIf="actions" style="  background: #000000; color: white;
+            padding: 0.3em; border-radius: 0.3em; border: 0px; cursor: pointer;  font-size: 0.6em; ">
+                Edit Category</button>
+
+
+            <button *ngIf="actions" style="  background: #000000; color: white;
+            padding: 0.3em; border-radius: 0.3em; border: 0px; cursor: pointer;  font-size: 0.6em; margin-left: 1.5em;"
+                (click)="openAddProduct()">
+                Add Product</button>
+        </div>
+    </div>
+
+    <div class="all_product">
+        <app-product-card *ngFor="let product of Products" [product]="product"></app-product-card>
+    </div>
+</div>

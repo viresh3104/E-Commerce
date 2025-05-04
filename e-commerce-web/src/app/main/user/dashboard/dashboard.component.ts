@@ -7,7 +7,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  allCategories: any[] = []; // Use any[] instead of Category[]
+  allCategories: any[] = [];
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
@@ -18,8 +18,6 @@ export class DashboardComponent {
     this.adminService.getAllCategories().subscribe(
       (Categories) => {
         this.allCategories = Categories;
-        console.log('recived obj', Categories);
-        console.log('saved obj', this.allCategories);
       },
       (error) => {
         console.log(error);

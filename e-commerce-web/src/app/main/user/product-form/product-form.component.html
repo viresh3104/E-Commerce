@@ -1,1 +1,55 @@
-<p>product-form works!</p>
+<h1 mat-dialog-title>Add New Product</h1>
+<mat-dialog-content id="main-form">
+    <form [formGroup]="productForm" id="inputs">
+        <mat-form-field appearance="outline" id="name">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="enter Name" formControlName="name" type="text" required>
+            <mat-error *ngIf="productForm.get('name')?.hasError('required')">Name is required</mat-error>
+            <mat-error *ngIf="productForm.get('name')?.hasError('minlength')">Product Name Must have 5
+                character</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" id="brand">
+            <mat-label>Brand</mat-label>
+            <input type="text" placeholder="Product's Brand" formControlName="brand" matInput required>
+            <mat-error *ngIf="productForm.get('brand')?.hasError('required')">Brand is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" id="description">
+            <mat-label>Product Description</mat-label>
+            <input type="text" placeholder="Product description" formControlName="description" matInput>
+            <mat-error *ngIf="productForm.get('description')?.hasError('required')">Product Must have
+                Description</mat-error>
+            <mat-error *ngIf="productForm.get('description')?.hasError('maxlength')">Limit Excedding 50
+                characters</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" id="price">
+            <mat-label>Price</mat-label>
+            <input type="text" placeholder="Product Price" formControlName="price" matInput required>
+            <mat-error *ngIf="productForm.get('price')?.hasError('required')">Price is required</mat-error>
+            <mat-error *ngIf="productForm.get('price')?.hasError('min')">Price can not less than 1</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" id="dprice">
+            <mat-label>Discounted Price</mat-label>
+            <input type="text" placeholder="Discounted Price" formControlName="discountedPrice" matInput>
+            <mat-error *ngIf="productForm.get('discountedPrice')?.hasError('invalidDiscount')">Must be less than Selling
+                Price</mat-error>
+        </mat-form-field>
+
+        <div>
+            <label for="image">Upload Product Images</label>
+            <input type="file" id="image" (change)="onFileChange($event)" accept="image/*" multiple>
+            <mat-error *ngIf="fileError">{{fileError}}</mat-error>
+            <div *ngIf="selectedFiles.length > 0">
+                <p>Selected Images: {{ selectedFiles.length }}</p>
+            </div>
+        </div>
+    </form>
+    <mat-dialog-actions>
+        <button mat-button type="submit" [disabled]="productForm.invalid" (click)="CretateProduct()">Create
+            Product</button>
+    </mat-dialog-actions>
+</mat-dialog-content>

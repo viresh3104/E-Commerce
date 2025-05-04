@@ -1,0 +1,77 @@
+.each_product {
+  height: 33em;
+  width: 24em;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+  margin-bottom: 2em;
+  border-radius: 0em 0em 1em 1em;
+
+  .image {
+    height: 82%;
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* or 'contain' */
+      border-radius: 0em 0em 1em 1em;
+    }
+  }
+  .product_detail {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .name_and_brand {
+      height: 50%;
+      display: flex;
+      flex-direction: row;
+      .name {
+        width: 78%;
+        font-size: 1.8em;
+        font-weight: 200;
+        padding-top: 0.5em;
+        padding-left: 0.5em;
+        overflow: hidden;
+      }
+      .product_actions {
+        width: 20%;
+        padding-top: 0.5em;
+        padding-right: 0.4em;
+        font-size: 1.6em;
+        #wishlist {
+          margin-left: 0.4em;
+        }
+      }
+    }
+    .price_and_brand {
+      height: 50%;
+      display: flex;
+      justify-content: space-between;
+      .price {
+        padding-top: 0.35em;
+        padding-left: 0.9em;
+        font-size: 1em;
+
+        .original-price {
+          text-decoration: line-through;
+          color: gray;
+          margin-left: 8px;
+          font-size: 1.1em;
+        }
+
+        span {
+          font-size: 1.5em;
+          font-weight: 600;
+        }
+      }
+      .brand {
+        font-weight: 300;
+        color: gray;
+        padding-right: 1em;
+        padding-top: 0.5em;
+      }
+    }
+  }
+}

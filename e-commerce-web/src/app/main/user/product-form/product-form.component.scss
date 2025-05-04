@@ -1,0 +1,37 @@
+#main-form {
+  #inputs {
+    padding: 1em;
+    #name {
+      width: 100%;
+      margin-bottom: 0.7em;
+    }
+    #brand {
+      width: 40%;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    #description {
+      width: 58%;
+      margin-bottom: 0.5em;
+    }
+    #price {
+      width: 49%;
+      margin-right: 0.5em;
+    }
+    #dprice {
+      width: 49%;
+    }
+  }
+}
+mat-dialog-actions {
+  button {
+    position: relative;
+    left: 65%;
+    width: 10em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.7em;
+    background-color: rgb(24, 170, 255);
+    font-size: 1em;
+  }
+}

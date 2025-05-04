@@ -4,10 +4,10 @@
             <p>{{ category.name }}</p>
         </div>
         <div class="actions">
-            <button *ngIf="!categoryShowButton" id="view-all"
+            <button *ngIf="!categoryShowButton" id="view-all" (click)="gotoCategory()"
                 style="background: none; border: 0px; cursor: pointer; margin-right: 2em;  font-size: 1em;">View
                 All</button>
-            <button *ngIf="categoryShowButton" id="edit"
+            <button *ngIf="categoryShowButton" id="edit" (click)="gotoCategory()"
                 style="background: none; border: 0px; cursor: pointer; margin-right: 2em;  font-size: 1em;">Edit
                 Category</button>
         </div>
