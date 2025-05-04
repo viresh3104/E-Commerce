@@ -1,4 +1,5 @@
 const express = require("express");
+const multer = require("multer");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
@@ -7,6 +8,19 @@ const userRoutes = require("./routes/user.routes");
 
 dotenv.config();
 const app = express();
+
+// Configure multer to use memory storage for image uploads
+const upload = multer({
+  storage: multer.memoryStorage(),
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith("image/")) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only image files are allowed"), false);
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
 
 // Configure CORS
 app.use(

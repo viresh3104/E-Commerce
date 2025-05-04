@@ -1,4 +1,5 @@
 const CategoryM = require("../models/category.model");
+const ProductM = require("../models/product.model");
 
 exports.CreateCategory = async (req, res) => {
   try {
@@ -21,10 +22,79 @@ exports.CreateCategory = async (req, res) => {
   }
 };
 
+exports.CreateProduct = async (req, res) => {
+  try {
+    if (!req.body.data) {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Form data is missing",
+      });
+    }
+
+    // Parse the form data from the 'data' field
+    let formData = JSON.parse(req.body.data);
+    const { name, description, price, discountedPrice, category_id, brand } =
+      formData;
+
+    // validate category
+    const category = await CategoryM.findOne({
+      category_id: Number(category_id),
+    });
+
+    if (!category) {
+      console.log("Invalid category_id:", category_id);
+      return res.status(400).json({
+        status: "Failed",
+        message: "Category Not Found",
+      });
+    }
+
+    // Convert uploaded files to Base64
+    const ImageUrls = req.files
+      ? req.files.map((file) => {
+          const base64 = file.buffer.toString("base64");
+          return `data:${file.mimetype};base64,${base64}`;
+        })
+      : [];
+
+    // create product
+    const ProductData = {
+      name,
+      description,
+      price,
+      brand,
+      discountedPrice: discountedPrice ? Number(discountedPrice) : undefined,
+      category_id: Number(category_id),
+      image_urls: ImageUrls,
+    };
+
+    const product = await ProductM.create(ProductData);
+    res.status(201).json(product);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
 exports.getCategories = async (req, res) => {
   try {
     const categories = await CategoryM.find();
     res.status(201).json(categories);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+exports.GetProducts = async (req, res) => {
+  try {
+    const { category_id } = req.query;
+    if (!category_id) {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Product's Category Not Found",
+      });
+    }
+    const products = await ProductM.find({ category_id: Number(category_id) });
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
