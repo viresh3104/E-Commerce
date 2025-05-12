@@ -14,7 +14,7 @@ import { UserService } from '../user.service';
 export class CategoryDetailComponent {
   categoryId!: string;
   Products: any[] = [];
-  Category: any[] = [];
+  Category: any = null; // Changed to single object, not array
   actions: boolean = false;
 
   constructor(
@@ -30,6 +30,7 @@ export class CategoryDetailComponent {
     this.categoryId = this.route.snapshot.paramMap.get('id') || '';
     this.actions = this.authservice.isAdmin();
     this.loadProducts();
+    this.loadCategory();
   }
 
   gotoDashboard() {
@@ -58,6 +59,17 @@ export class CategoryDetailComponent {
       },
       (error) => {
         console.error('Error fetching products:', error);
+      }
+    );
+  }
+
+  loadCategory() {
+    this.userService.getCategory(Number(this.categoryId)).subscribe(
+      (category) => {
+        this.Category = category;
+      },
+      (error) => {
+        console.error('Error fetching Category:', error);
       }
     );
   }

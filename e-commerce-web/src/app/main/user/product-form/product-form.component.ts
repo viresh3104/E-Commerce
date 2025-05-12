@@ -83,6 +83,12 @@ export class ProductFormComponent {
       });
 
       this.adminService.createProduct(formData).subscribe((res) => {
+        this.snackBar.open('Product Added to cateogry', '', {
+          duration: 4000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['snax-bar'],
+        });
         this.dialogRef.close(res);
         console.log('product created successful');
       });

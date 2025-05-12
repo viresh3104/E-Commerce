@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { CategoryFormComponent } from '../../../main/user/category-form/category-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,21 +12,33 @@ import { MatDialog } from '@angular/material/dialog';
 export class HeaderComponent {
   showButton: boolean = false;
 
-  constructor(private authservice: AuthService, private dialog: MatDialog) {}
+  constructor(
+    private authservice: AuthService,
+    private dialog: MatDialog,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.showButton = this.authservice.isAdmin();
   }
 
   OpencategoryForm() {
-    const dialogRef = this.dialog.open(CategoryFormComponent, {
+    this.dialog.open(CategoryFormComponent, {
       width: '38em',
       data: {},
     });
+  }
 
-    dialogRef.afterClosed().subscribe((res) => {
-      if (res) {
-      }
+  goToWishlist() {
+    this.router.navigate(['../wishlist'], {
+      relativeTo: this.activatedRoute,
+    });
+  }
+
+  goToCart() {
+    this.router.navigate(['../cart'], {
+      relativeTo: this.activatedRoute,
     });
   }
 }

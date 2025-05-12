@@ -5,10 +5,10 @@
     </div>
 
     <div class="links">
-        <a *ngIf="!showButton" href=""><i class="fa-solid fa-cart-shopping"></i></a>
-        <a *ngIf="!showButton" href=""><i class="fa-solid fa-heart"></i></a>
-        <a *ngIf="showButton" (click)="OpencategoryForm()">Add Category</a>
-        <a href=""><i class="fa-solid fa-user"></i></a>
+        <a *ngIf="!showButton" (click)="goToCart()"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a *ngIf="!showButton" (click)="goToWishlist()"><i class="fa-solid fa-heart"></i></a>
+        <a *ngIf="showButton" (click)="OpencategoryForm()" style="cursor: pointer;">Add Category</a>
+        <a href="User Profile"><i class="fa-solid fa-user"></i></a>
         <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
 </header>

@@ -28,7 +28,7 @@ export class LoginComponent {
       .loginService(this.userD.email, this.userD.password)
       .subscribe({
         next: (response) => {
-          this.snackBar.open(`🎯 Welcome Back, ${response.user.name} !`, '', {
+          this.snackBar.open(`Welcome Back, ${response.user.name} !`, '', {
             duration: 4000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
@@ -37,10 +37,10 @@ export class LoginComponent {
           this.router.navigate(['/user/dashboard']);
         },
         error: (err) => {
-          this.snackBar.open('⚠️ Wrong Email or Password, Try Again : )', '', {
+          this.snackBar.open('⚠︎ Wrong Email or Password, Try Again : )', '', {
             duration: 4000,
-            horizontalPosition: 'right',
-            verticalPosition: 'bottom',
+            horizontalPosition: 'start',
+            verticalPosition: 'top',
             panelClass: ['snax-bar'],
           });
         },

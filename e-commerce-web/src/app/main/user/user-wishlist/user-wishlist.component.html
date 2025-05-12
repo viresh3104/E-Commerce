@@ -1,1 +1,18 @@
-<p>user-wishlist works!</p>
+<app-header></app-header>
+
+
+<div class="outer">
+    <div class="category_heading">
+        Your Wishlist
+    </div>
+
+    <div class="actions">
+        <div class="actions1">
+            <i id="back-arrow" class="fa-solid fa-arrow-left" style="cursor: pointer;" (click)="gotoDashboard()"></i>
+        </div>
+    </div>
+
+    <div class="all_product">
+        <app-product-card *ngFor="let product of wishlist" [product]="product"></app-product-card>
+    </div>
+</div>

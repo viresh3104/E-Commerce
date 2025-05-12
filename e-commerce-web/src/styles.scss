@@ -50,20 +50,29 @@ body {
 }
 
 .mat-mdc-snack-bar-container {
-  --mdc-snackbar-container-color: white !important;
-  --mdc-snackbar-supporting-text-color: black !important;
+  // --mdc-snackbar-container-color: white !important;
+  // --mdc-snackbar-supporting-text-color: black !important;
+
   margin: 2rem;
 }
 
 .mdc-snackbar__surface {
   padding: 0em !important;
+  border-radius: 1.2em !important;
 }
 
 .mat-mdc-snack-bar-label {
   display: flex !important;
   justify-content: center !important;
+  background-color: black !important;
+  border-radius: 1em !important;
+  font-family: "DM Sans" !important;
 }
 
 .snax-bar {
   margin: 1.5rem !important;
+}
+
+.mat-mdc-snack-bar-handset {
+  width: auto;
 }

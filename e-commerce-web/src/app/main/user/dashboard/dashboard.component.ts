@@ -8,6 +8,7 @@ import { AdminService } from '../admin.service';
 })
 export class DashboardComponent {
   allCategories: any[] = [];
+  products: any[] = [];
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {

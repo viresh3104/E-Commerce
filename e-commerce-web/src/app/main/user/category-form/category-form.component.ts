@@ -23,7 +23,6 @@ export class CategoryFormComponent {
       description: ['', [Validators.maxLength(100)]],
     });
   }
-  
 
   onCreate() {
     if (this.categoryForm.valid) {
@@ -31,12 +30,12 @@ export class CategoryFormComponent {
         .createCategory(this.categoryForm.value)
         .subscribe((res) => {
           this.snackBar.open(
-            `🎯 ${this.categoryForm.value.name} Category Cretated`,
+            `${this.categoryForm.value.name} Category Cretated`,
             '',
             {
               duration: 4000,
-              horizontalPosition: 'right',
-              verticalPosition: 'bottom',
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
               panelClass: ['snax-bar'],
             }
           );

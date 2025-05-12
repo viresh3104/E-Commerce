@@ -1,50 +1,78 @@
 .dashboard {
-  background-color: #2e2e29;
-  // height: 100vh;
+  background: #323636;
   padding-top: 8em;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
+
 .carousel {
   position: relative;
   width: 100%;
-  height: 40vh;
+  height: 50vh;
+  margin-bottom: 1.5em;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .carousel__viewport {
   display: flex;
   width: 100%;
-  animation: slide 16s infinite ease-in-out;
+  animation: slide 38.5s infinite;
 }
 
 .carousel__slide {
   flex: 0 0 100%;
   width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .carousel__slide img {
   width: 100%;
-  // height: auto;
-  object-fit: contain;
-  // display: block;
+  // height: 50vh;
+  display: block;
 }
 
 @keyframes slide {
   0%,
-  25% {
+  10.39% {
+    /* 0s to 4s: Slide 1 */
     transform: translateX(0);
   }
-  27%,
-  50% {
+  11.69%,
+  22.08% {
+    /* 4.5s to 8.5s: Slide 2 */
     transform: translateX(-100%);
   }
-  52%,
-  75% {
+  23.38%,
+  33.77% {
+    /* 9s to 13s: Slide 3 */
     transform: translateX(-200%);
   }
-  77%,
-  100% {
+  35.06%,
+  45.45% {
+    /* 13.5s to 17.5s: Slide 4 */
     transform: translateX(-300%);
+  }
+  46.75%,
+  57.14% {
+    /* 18s to 22s: Slide 5 */
+    transform: translateX(-400%);
+  }
+  58.44%,
+  68.83% {
+    /* 22.5s to 26.5s: Slide 6 */
+    transform: translateX(-500%);
+  }
+  70.13%,
+  80.52% {
+    /* 27s to 31s: Slide 7 */
+    transform: translateX(-600%);
+  }
+  81.82%,
+  100% {
+    /* 31.5s to 38.5s: Back to Slide 1 */
+    transform: translateX(0);
   }
 }

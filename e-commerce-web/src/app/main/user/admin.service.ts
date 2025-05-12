@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -10,6 +10,11 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders().set('Authorization', `Bearer ${token || ''}`);
+  }
+
   createCategory(categoryDataForm: any) {
     return this.http.post(`${this.apiUrl}/createcategory`, categoryDataForm);
   }
@@ -19,15 +24,14 @@ export class AdminService {
   }
 
   getAllCategories(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/getcategories`);
+    return this.http.get<any[]>(`${this.apiUrl}/getcategories`, {
+      headers: this.getHeaders(),
+    });
   }
 
   getProductsByCategory(categoryId: number): Observable<any[]> {
-    console.log('calling the api for products');
     return this.http.get<any[]>(`${this.apiUrl}/getproducts`, {
       params: { category_id: categoryId.toString() },
     });
   }
-
-  getCateogory(categoryId: number) {}
 }
