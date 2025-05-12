@@ -29,13 +29,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "/",
   }, //path of photo
-  cart : {
-    
-  },
-  wishlist : {
-    
-  }
-
+  cart: {},
+  wishlist: [{ type: Number }],
 });
 
 // pre middlewares
