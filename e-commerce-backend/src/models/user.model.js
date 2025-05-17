@@ -28,9 +28,13 @@ const userSchema = new mongoose.Schema({
   profile_photo: {
     type: String,
     default: "/",
-  }, //path of photo
+  },
   cart: {},
   wishlist: [{ type: Number }],
+  phoneNumber: { type: String, default: "" },
+  gender: { type: String, enum: ["male", "female", "other"], default: "" },
+  address: { type: String, default: "" },
+  dateOfBirth: { type: Date },
 });
 
 // pre middlewares

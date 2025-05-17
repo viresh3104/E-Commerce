@@ -12,13 +12,15 @@ UserRouter.post(
   AdminController.CreateProduct
 );
 
-// for User
+// for All User
 const UserController = require("../controllers/user.controller");
 UserRouter.get("/getcategories", protect, UserController.GetCategories);
 UserRouter.get("/getproducts", UserController.GetProducts);
 UserRouter.get("/getcategory", UserController.GetCategory);
+UserRouter.get("/getproduct", UserController.GetProduct);
 
-// user wishlist
+// user specific like wishlist , profile ,etc
+// 1)wihslist
 const WishlistController = require("../controllers/wishlist.controller");
 UserRouter.get("/wishlist", protect, WishlistController.getWishlist);
 UserRouter.post("/wishlist/add", protect, WishlistController.addToWishlist);
@@ -27,7 +29,8 @@ UserRouter.delete(
   protect,
   WishlistController.removeFromWishlist
 );
-
-UserRouter;
+// 2)Profile
+UserRouter.get("/profile", protect, UserController.GetUserProfile);
+UserRouter.patch("/profile", protect, UserController.updateUserProfile);
 
 module.exports = UserRouter;

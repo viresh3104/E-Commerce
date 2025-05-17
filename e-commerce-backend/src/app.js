@@ -26,7 +26,7 @@ const upload = multer({
 app.use(
   cors({
     origin: "http://localhost:4200", // Allow Angular frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   })
 );

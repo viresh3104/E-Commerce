@@ -33,8 +33,16 @@ exports.CreateProduct = async (req, res) => {
 
     // Parse the form data from the 'data' field
     let formData = JSON.parse(req.body.data);
-    const { name, description, price, discountedPrice, category_id, brand } =
-      formData;
+    const {
+      name,
+      description,
+      price,
+      discountedPrice,
+      category_id,
+      brand,
+      stock,
+      size,
+    } = formData;
 
     // validate category
     const category = await CategoryM.findOne({
@@ -64,6 +72,8 @@ exports.CreateProduct = async (req, res) => {
       price,
       brand,
       discountedPrice: discountedPrice ? Number(discountedPrice) : undefined,
+      stock,
+      size,
       category_id: Number(category_id),
       image_urls: ImageUrls,
     };

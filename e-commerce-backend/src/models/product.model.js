@@ -34,6 +34,15 @@ const productSchema = new mongoose.Schema({
   discountedPrice: {
     type: Number,
   },
+  stock: {
+    type: Number,
+    required: [true, "Product stock is required"],
+    min: [1, "Stock must be at least 1"],
+  },
+  size: {
+    type: String,
+    enum: ["Clothing", "Footware"],
+  },
   image_urls: [{ type: String }],
   created_at: { type: Date, default: Date.now },
   is_active: { type: Boolean, default: true },
