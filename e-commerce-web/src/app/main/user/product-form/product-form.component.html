@@ -39,6 +39,23 @@
                 Price</mat-error>
         </mat-form-field>
 
+
+        <mat-form-field appearance="outline">
+            <mat-label>Select Sizing</mat-label>
+            <mat-select formControlName="size">
+                <mat-option value="Clothing">Clothing(S,M,etc)</mat-option>
+                <mat-option value="Footware">FootWare(8,9,etc)</mat-option>
+                <mat-option value="other">Other</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" id="stock">
+            <mat-label>Items In Stock</mat-label>
+            <input type="text" placeholder="Stock available" formControlName="stock" matInput>
+            <mat-error *ngIf="productForm.get('stock')?.hasError('required')">Stock is required</mat-error>
+            <mat-error *ngIf="productForm.get('stock')?.hasError('min')">Stock can not less than 1</mat-error>
+        </mat-form-field>
+
         <div>
             <label for="image">Upload Product Images</label>
             <input type="file" id="image" (change)="onFileChange($event)" accept="image/*" multiple>

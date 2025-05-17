@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -15,7 +16,8 @@ export class ProductCardComponent {
 
   constructor(
     private authservice: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -56,5 +58,9 @@ export class ProductCardComponent {
         }
       );
     }
+  }
+
+  gotoProductDetails() {
+    this.router.navigate(['user/product', this.product.product_id]);
   }
 }

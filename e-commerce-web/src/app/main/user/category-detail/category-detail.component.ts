@@ -53,7 +53,7 @@ export class CategoryDetailComponent {
   }
 
   loadProducts() {
-    this.adminService.getProductsByCategory(Number(this.categoryId)).subscribe(
+    this.userService.getProductsByCategory(Number(this.categoryId)).subscribe(
       (products) => {
         this.Products = products;
       },

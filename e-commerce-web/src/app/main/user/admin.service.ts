@@ -22,16 +22,4 @@ export class AdminService {
   createProduct(productFormData: any) {
     return this.http.post(`${this.apiUrl}/createproduct`, productFormData);
   }
-
-  getAllCategories(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/getcategories`, {
-      headers: this.getHeaders(),
-    });
-  }
-
-  getProductsByCategory(categoryId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/getproducts`, {
-      params: { category_id: categoryId.toString() },
-    });
-  }
 }

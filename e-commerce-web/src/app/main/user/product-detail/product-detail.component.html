@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<div class="body">
+    <div class="outer">
+        <div class="image">
+            <div class="back">
+                <button (click)="backImage()">
+                    < </button>
+
+            </div>
+
+            <div class="main">
+                <img src="{{productData?.image_urls[current_img]}}" alt="">
+            </div>
+
+            <div class="next">
+                <button (click)="nextImage()">></button>
+            </div>
+
+        </div>
+
+        <div class="details">
+            <div class="inner">
+                <div class="name">
+                    <p>{{productData.name}}</p>
+                </div>
+                <div class="descri">
+                    <p>{{productData.description}}</p>
+                </div>
+                <div class="price">
+                    <p *ngIf="productData.discountedPrice">
+                        MRP : <span class="discounted-price">₹{{ productData.discountedPrice }}</span>
+                        <span class="original-price">₹{{ productData.price }}</span>
+                    </p>
+                    <p *ngIf="!productData.discountedPrice">
+                        MRP <span>₹{{ productData.price }}</span>
+                    </p>
+                    <p id="tax">
+                        (inclusive of all taxes)
+                    </p>
+                </div>
+
+                <!-- sizing -->
+                <div class="footware" *ngIf="productData.size == 'Footware'">
+                    i am footware sizing
+                </div>
+
+                <div class="footware" *ngIf="productData.size == 'Clothing'">
+                    i am Clothing sizing
+                </div>
+            </div>
+        </div>
+    </div>

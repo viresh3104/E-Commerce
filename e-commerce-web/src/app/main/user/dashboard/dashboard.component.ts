@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../admin.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +10,17 @@ import { AdminService } from '../admin.service';
 export class DashboardComponent {
   allCategories: any[] = [];
   products: any[] = [];
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
     this.loadCategories();
   }
 
   loadCategories() {
-    this.adminService.getAllCategories().subscribe(
+    this.userService.getAllCategories().subscribe(
       (Categories) => {
         this.allCategories = Categories;
       },

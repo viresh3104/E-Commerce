@@ -41,4 +41,10 @@ export class HeaderComponent {
       relativeTo: this.activatedRoute,
     });
   }
+
+  gotoprofile() {
+    this.router.navigate(['../profile'], {
+      relativeTo: this.activatedRoute,
+    });
+  }
 }

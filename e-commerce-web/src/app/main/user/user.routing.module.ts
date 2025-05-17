@@ -5,13 +5,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { UserWishlistComponent } from './user-wishlist/user-wishlist.component';
 import { UserCartComponent } from './user-cart/user-cart.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'userprofile', component: UserProfileComponent },
+  { path: 'profile', component: UserProfileComponent },
   { path: 'category/:id', component: CategoryDetailComponent },
   { path: 'wishlist', component: UserWishlistComponent },
   { path: 'cart', component: UserCartComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
 ];
 
 @NgModule({

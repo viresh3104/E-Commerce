@@ -1,0 +1,106 @@
+.body {
+  overflow: hidden;
+  height: 100vh;
+  background-color: black;
+  .outer {
+    height: 85%;
+    width: 100%;
+    margin-top: 6%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 0em 5em;
+
+    .image {
+      height: 100%;
+      width: 40%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .back {
+        width: 7%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        button {
+          height: 10%;
+          background-color: white;
+          border: none;
+          font-size: 2em;
+        }
+      }
+      .main {
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        padding: 2em 0em 2em 0em;
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+      .next {
+        width: 8%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        button {
+          height: 10%;
+          background-color: white;
+          border: none;
+          font-size: 2em;
+        }
+      }
+    }
+    .details {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .inner {
+        height: 100%;
+        padding: 1em;
+        .name {
+          height: 5%;
+          display: flex;
+          align-items: center;
+          p {
+            margin: 0;
+            font-size: 2em;
+          }
+        }
+        .descri {
+          height: 3%;
+          p {
+            color: gray;
+            font-size: 1.1em;
+          }
+        }
+        .price {
+          margin-top: 1em;
+          .discounted-price {
+          }
+          .original-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-left: 8px;
+            font-size: 1.1em;
+            font-weight: 200;
+          }
+          p {
+            margin: 0;
+          }
+
+          span {
+            font-size: 1.5em;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

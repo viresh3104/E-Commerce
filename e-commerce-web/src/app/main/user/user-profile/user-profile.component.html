@@ -1,1 +1,81 @@
-<p>user-profile works!</p>
+<app-header></app-header>
+
+<div class="outer">
+    <div class="actions">
+        <div class="actions1">
+            <i id="back-arrow" class="fa-solid fa-arrow-left" style="cursor: pointer" (click)="goToDashboard()"></i>
+        </div>
+    </div>
+
+    <div class="innner">
+        <div class="left">
+            <div class="profile_photo">
+                <div class="photo">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+
+            <div class="user_actions">
+                <button>Orders</button>
+                <button>Chat with us</button>
+            </div>
+        </div>
+
+
+
+        <div class="right">
+            <h2>User Profile</h2>
+            <div class="profile-header">
+                <button *ngIf="!isEditing" mat-raised-button color="primary" (click)="enableEdit()"
+                    id="edit">Edit</button>
+            </div>
+
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="main-form">
+                <mat-form-field appearance="fill" id="mail">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" readonly>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" id="pn">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phoneNumber" [readonly]="!isEditing">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" id="name">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" [readonly]="!isEditing">
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill" id="gender">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" [disabled]="!isEditing">
+                        <mat-option value="">Select Gender</mat-option>
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <mat-form-field appearance="fill" id="date">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" [readonly]="!isEditing">
+                    <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="!isEditing"></mat-datepicker-toggle>
+                    <mat-datepicker #picker [disabled]="!isEditing"></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" id="address">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="address" [readonly]="!isEditing">
+                </mat-form-field>
+
+                <div class="form-actions" *ngIf="isEditing">
+                    <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid"
+                        (click)="onSubmit()" id="save">Save</button>
+                    <button mat-button (click)="cancelEdit()" id="cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

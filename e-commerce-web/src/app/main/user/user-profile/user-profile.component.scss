@@ -1,0 +1,142 @@
+.outer {
+  height: 100vh;
+  background: #323636;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .actions {
+    width: 95%;
+    font-size: 2em;
+    color: white;
+    display: flex;
+    margin-left: 1em;
+    width: 96%;
+    margin-top: 5%;
+  }
+  .innner {
+    background-color: white;
+    height: 65%;
+    width: 80%;
+    border-radius: 0.5em;
+    margin-top: -1.5em;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    .left {
+      height: 100%;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid black;
+      .profile_photo {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .photo {
+          width: 90%;
+          height: 95%;
+          border-radius: 50%;
+          border: 1px solid black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            font-size: 15em;
+          }
+        }
+      }
+      .user_actions {
+        height: 40%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        button {
+          height: 40%;
+          margin: 0.5em 1em;
+          border: none;
+          border-radius: 0.5em;
+          font-size: 1.05em;
+          transition: transform 0.2s ease-in-out;
+          background-color: rgb(160, 159, 159);
+          font-family: "DM Sans";
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.01);
+          }
+        }
+      }
+    }
+    .right {
+      height: 100%;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        margin: 0.5em 0px 0px 1em;
+        font-size: 2em;
+        font-weight: 100;
+      }
+      .profile-header {
+        height: 2em;
+        #edit {
+          margin-left: 85%;
+          color: white;
+          background-color: black;
+          border: none;
+          height: 100%;
+          width: 12%;
+          border-radius: 0.2em;
+        }
+      }
+
+      .main-form {
+        height: 80%;
+        margin-top: 2em;
+        margin-left: 1em;
+        #name {
+          width: 60%;
+          margin-left: 20%;
+        }
+        #mail {
+          width: 28%;
+          margin-left: 20%;
+          margin-right: 4%;
+        }
+        #pn {
+          width: 28%;
+        }
+        #gender {
+          width: 28%;
+          margin-left: 20%;
+          margin-right: 4%;
+        }
+        #date {
+          width: 28%;
+        }
+        #address {
+          width: 60%;
+          height: 30%;
+          margin-left: 20%;
+        }
+        .form-actions {
+          height: 2em;
+          width: 100%;
+          padding-left: 70%;
+          button {
+            color: white;
+            background-color: black;
+            border: none;
+            height: 100%;
+            width: 12%;
+            border-radius: 0.2em;
+            margin-right: 1.5em;
+          }
+        }
+      }
+    }
+  }
+}

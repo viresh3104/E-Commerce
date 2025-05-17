@@ -27,6 +27,8 @@ export class ProductFormComponent {
         brand: ['', Validators.required],
         price: ['', [Validators.required, Validators.min(1)]],
         discountedPrice: [''],
+        size: [''],
+        stock: ['', Validators.min(1)],
         category_id: [data.categoryId, Validators.required],
       },
       { Validators: this.discountedPriceValidator }
