@@ -1,0 +1,13 @@
+Package             Version
+------------------- -------
+asgiref             3.8.1
+dataclasses         0.6
+Django              5.2.1
+djangorestframework 3.16.0
+djongo              1.2.31
+dnspython           2.7.0
+mongoengine         0.29.1
+pip                 24.3.1
+pymongo             4.13.0
+sqlparse            0.5.3
+tzdata              2025.2
