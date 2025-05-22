@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
-    validator: [validator.isEmail, "Entered Email is Not Valid"],
+    validate: [validator.isEmail, "Entered Email is Not Valid"],
   },
   password: {
     type: String,
@@ -25,20 +25,29 @@ const userSchema = new mongoose.Schema({
     default: "user",
     enum: ["user", "admin"],
   },
-  profile_photo: {
-    type: String,
-    default: "/",
-  },
-  cart: {},
+  cart: [
+    {
+      productId: { type: Number, required: true },
+      size: { type: String, required: true },
+      quantity: {
+        type: Number,
+        default: 1,
+        min: [1, "Quantity must be at least 1"],
+      },
+    },
+  ],
   wishlist: [{ type: Number }],
   phoneNumber: { type: String, default: "" },
-  gender: { type: String, enum: ["male", "female", "other"], default: "" },
+  gender: {
+    type: String,
+    enum: ["male", "female", "other"],
+    default: undefined,
+  },
   address: { type: String, default: "" },
   dateOfBirth: { type: Date },
 });
 
 // pre middlewares
-
 // 1. encryption for password
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();

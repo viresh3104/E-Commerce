@@ -15,7 +15,6 @@ exports.getWishlist = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-
 exports.addToWishlist = async (req, res) => {
   try {
     const { productId } = req.body;
@@ -29,7 +28,6 @@ exports.addToWishlist = async (req, res) => {
       user.wishlist.push(productId);
       await user.save();
     }
-
     res.status(200).json({ message: "Product added to wishlist" });
   } catch (err) {
     res.status(500).json({ message: err.message });
