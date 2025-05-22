@@ -60,7 +60,10 @@ export class ProductCardComponent {
     }
   }
 
+  cart() {}
+
   gotoProductDetails() {
+    this.userService.WishlistStatusInProductDeatil = this.isWishlist;
     this.router.navigate(['user/product', this.product.product_id]);
   }
 }

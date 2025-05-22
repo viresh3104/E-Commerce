@@ -19,6 +19,7 @@ export class UserWishlistComponent {
   loadWishlistProducts() {
     this.userservice.getWishlist().subscribe((wishlist) => {
       this.wishlist = wishlist;
+      console.log(this.wishlist);
     });
   }
 

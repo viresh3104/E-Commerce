@@ -1,0 +1,177 @@
+.cart-outer {
+  height: 100vh;
+  .inner {
+    min-height: 40vh;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: row;
+    padding: 1em 5em;
+    .left {
+      width: 65%;
+      margin-right: 2em;
+      .product {
+        height: 19em;
+        display: flex;
+        flex-direction: row;
+        padding: 1.5em 0em;
+        border-bottom: 1px solid gray;
+        .image {
+          width: 22%;
+          display: flex;
+          justify-content: center;
+          margin-right: 1.5em;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .details {
+          width: 70%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .one {
+            .name {
+              margin: 0.2em 0em 0.2em 0em;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              .Oname {
+                font-size: 2em;
+              }
+              .quantity {
+                width: 15%;
+                height: 2em;
+                border: 2px solid gray;
+                border-radius: 0.5em;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                button {
+                  height: 100%;
+                  width: 35%;
+                  background-color: rgba(197, 194, 194, 0.658);
+                  border: none;
+                  border-radius: 0.5em 0em 0em 0.5em;
+                }
+                #add {
+                  border-radius: 0em 0.5em 0.5em 0em;
+                }
+
+                p {
+                  margin: 0em;
+                }
+              }
+            }
+            .box {
+              width: 20%;
+              margin: 0.5em 0em;
+              padding: 1em 0em;
+              display: flex;
+              justify-content: center;
+              border: 2px solid rgb(216, 211, 211);
+              border-radius: 1em;
+            }
+            .descri {
+              font-size: 1.1em;
+              color: gray;
+            }
+          }
+          .two {
+            display: flex;
+            justify-content: space-between;
+            .actions {
+              font-size: 1.5em;
+              padding: 0.5em;
+              border-radius: 50%;
+              transition: transform 0.2s ease-in-out;
+            }
+            .actions:hover {
+              background-color: rgb(209, 209, 209);
+              transform: scale(1.05);
+            }
+            .price {
+              font-size: 1em;
+              color: gray;
+              span {
+                font-size: 2em;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      width: 30%;
+      height: 20em;
+      position: fixed;
+      left: 65%;
+      display: flex;
+      flex-direction: column;
+      .summary {
+        font-size: 2em;
+        font-weight: 600;
+      }
+      .total {
+        margin-top: 1em;
+        .subtotal {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1em;
+          .text {
+            font-size: 1.2em;
+            margin-left: 1em;
+          }
+          .subTamount {
+            font-size: 1.5em;
+            margin-right: 1em;
+          }
+        }
+        .carges {
+          display: flex;
+          justify-content: space-between;
+          height: 2em;
+          border-bottom: 1px solid gray;
+          .chargesT {
+            font-size: 1.2em;
+            margin-left: 1em;
+          }
+          .chargesA {
+            margin-right: 1em;
+            font-size: 1.5em;
+          }
+        }
+        .ftotal {
+          display: flex;
+          justify-content: space-between;
+          height: 2em;
+          margin-top: 1em;
+          .ftotalT {
+            font-size: 1.2em;
+            margin-left: 1em;
+          }
+          .ftotalA {
+            margin-right: 1em;
+            font-size: 1.5em;
+          }
+        }
+      }
+
+      .checkout {
+        display: flex;
+        justify-content: center;
+        height: 3em;
+        margin-top: 3em;
+        button {
+          border: none;
+          width: 60%;
+          background-color: black;
+          color: white;
+          border-radius: 1em;
+        }
+      }
+    }
+  }
+}

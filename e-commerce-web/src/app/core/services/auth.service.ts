@@ -12,6 +12,7 @@ export class AuthService {
   // Signup: Takes name, email, and password, makes POST request, stores response
   signupService(name: string, email: string, password: string) {
     const signUpData = { name, email, password };
+    console.log(signUpData);
     return this.http.post(`${this.apiUrl}/signup`, signUpData).pipe(
       tap((response: any) => {
         localStorage.setItem('token', response.token);

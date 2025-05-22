@@ -1,1 +1,76 @@
-<p>user-cart works!</p>
+<app-header></app-header>
+
+<div class="cart-outer">
+    <div class="inner">
+        <div class="left">
+            <div class="product" *ngFor="let product of cart">
+                <div class="image">
+                    <img src="{{product.product.image_urls[3]}}" alt="">
+                </div>
+                <div class="details">
+                    <div class="one">
+                        <div class="name">
+                            <div class="Oname">
+                                {{product.product.name}}
+                            </div>
+                            <div class="quantity">
+                                <button (click)="updateQuantity(product , -1)">-</button>
+                                <p>{{product.quantity}}</p>
+                                <button id="add" (click)="updateQuantity(product , +1)">+</button>
+                            </div>
+                        </div>
+                        <div class="descri">{{product.product.description}}</div>
+                        <div class="box">{{product.size}}</div>
+                    </div>
+
+                    <div class="two">
+                        <div class="actions">
+                            <i class="fa-solid fa-trash" (click)="removeFromCart(product)"></i>
+                        </div>
+                        <div class="price">
+                            <div class="dprice" *ngIf="product.product?.discountedPrice">
+                                MRP: <span>{{product.product.discountedPrice * product.quantity}}</span>
+                            </div>
+                            <div class="oprice" *ngIf="!product.product?.discountedPrice">
+                                MRP: <span>{{product.product.price * product.quantity}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="right">
+            <div class="summary">Summary</div>
+            <div class="total">
+                <div class="subtotal">
+                    <div class="text">
+                        Subtotal
+                    </div>
+                    <div class="subTamount" cart>
+                        ₹ {{getsubtotal()}}
+                    </div>
+                </div>
+                <div class="carges">
+                    <div class="chargesT">
+                        Charges
+                    </div>
+                    <div class="chargesA">
+                        ₹ 1250
+                    </div>
+                </div>
+                <div class="ftotal">
+                    <div class="ftotalT">
+                        Total
+                    </div>
+                    <div class="ftotalA">
+                        ₹ {{getsubtotal() + 1250}}
+                    </div>
+                </div>
+            </div>
+            <div class="checkout">
+                <button>Place Order</button>
+            </div>
+        </div>
+    </div>

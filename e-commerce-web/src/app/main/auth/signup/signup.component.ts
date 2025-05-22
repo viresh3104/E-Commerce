@@ -40,22 +40,23 @@ export class SignupComponent {
       this.user.confirmpassword = '';
       return;
     }
-
+    console.log(
+      'sending signup data',
+      this.user.name,
+      this.user.email,
+      this.user.password
+    );
     this.authService
       .signupService(this.user.name, this.user.email, this.user.password)
       .subscribe((response) => {
         console.log('singup response', response);
-        this.snackBar.open(
-          'User Registered Successfully and Logged In 🎯',
-          '',
-          {
-            duration: 4000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: ['snax-bar'],
-          }
-        );
-        this.router.navigate(['/user/profile']);
+        this.snackBar.open('User Registered Successfully 🎯', '', {
+          duration: 4000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['snax-bar'],
+        });
+        this.router.navigate(['/auth/login']);
       });
   }
 

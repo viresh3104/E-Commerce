@@ -31,15 +31,11 @@ export class HeaderComponent {
   }
 
   goToWishlist() {
-    this.router.navigate(['../wishlist'], {
-      relativeTo: this.activatedRoute,
-    });
+    this.router.navigate(['user/wishlist'], {});
   }
 
   goToCart() {
-    this.router.navigate(['../cart'], {
-      relativeTo: this.activatedRoute,
-    });
+    this.router.navigate(['user/cart']);
   }
 
   gotoprofile() {

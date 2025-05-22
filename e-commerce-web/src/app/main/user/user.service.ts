@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   private baseURL = 'http://localhost:5000/api/user';
+  WishlistStatusInProductDeatil: boolean = false;
   constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
@@ -51,6 +52,43 @@ export class UserService {
   removeWishlist(productId: string): Observable<any> {
     return this.http.delete(`${this.baseURL}/wishlist/remove/${productId}`, {
       headers: this.getHeaders(),
+    });
+  }
+
+  // for cart
+  // 1) get cart items
+  getCart(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseURL}/cart`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  // 2) add items to cart
+  addToCart(
+    productId: number,
+    size: string,
+    quantity: number = 1
+  ): Observable<any> {
+    return this.http.post(
+      `${this.baseURL}/cart/add`,
+      { productId, size, quantity },
+      { headers: this.getHeaders() }
+    );
+  }
+
+  // 3) update quantity
+  updateQuantity(productId: number, size: string, quantity: number) {
+    return this.http.patch(
+      `${this.baseURL}/cart/update`,
+      { productId, size, quantity },
+      { headers: this.getHeaders() }
+    );
+  }
+  // 4) remove item from cart
+  removeCart(productId: number, size: string) {
+    return this.http.delete(`${this.baseURL}/cart/remove`, {
+      headers: this.getHeaders(),
+      body: { productId, size },
     });
   }
 
