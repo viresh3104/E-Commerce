@@ -1,7 +1,6 @@
 .body {
   overflow: hidden;
   height: 100vh;
-  //   background-color: black;
   .outer {
     height: 90%;
     width: 100%;
@@ -10,7 +9,6 @@
     display: flex;
     flex-direction: row;
     background-color: white;
-    // padding: 0em 5em;
     justify-content: center;
 
     .image {
@@ -119,7 +117,9 @@
               display: flex;
               flex-direction: row;
               flex-wrap: wrap;
-              justify-content: center;
+              justify-content: start;
+              margin-left: 2em;
+
               .box {
                 width: 25%;
                 margin: 0.5em 1em;

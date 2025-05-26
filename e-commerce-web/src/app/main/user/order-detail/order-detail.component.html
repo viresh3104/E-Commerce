@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="admin-orders">
+    <p id="header">Orders</p>
+    <table *ngIf="orders.length; else noOrders">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User</th>
+                <th>Items</th>
+                <th>Total Amount</th>
+                <th>Payment Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{ order.orderId }}</td>
+                <td>{{ order.userId.name }} ({{ order.userId.email }})</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let item of order.items">
+                            Product ID: {{ item.productId }}, Size: {{ item.size }}, Quantity: {{ item.quantity }}
+                        </li>
+                    </ul>
+                </td>
+                <td>₹{{ order.totalAmount }}</td>
+                <td>{{ order.paymentStatus }}</td>
+                <td>{{ order.createdAt | date:'medium' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #noOrders>
+        <p>No orders found.</p>
+    </ng-template>
+</div>

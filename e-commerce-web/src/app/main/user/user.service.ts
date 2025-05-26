@@ -111,4 +111,26 @@ export class UserService {
       params: { product_id: productId.toString() },
     });
   }
+
+  // for payment
+  createOrder(amount: number, cartItems: any[]): Observable<any> {
+    return this.http.post(
+      `${this.baseURL}/order/create`,
+      { amount, cartItems },
+      { headers: this.getHeaders() }
+    );
+  }
+
+  confirmOrder(
+    orderId: string,
+    paymentId: string,
+    totalAmount: number,
+    cartItems: any[]
+  ): Observable<any> {
+    return this.http.post(
+      `${this.baseURL}/order/confirm`,
+      { orderId, paymentId, totalAmount, cartItems },
+      { headers: this.getHeaders() }
+    );
+  }
 }

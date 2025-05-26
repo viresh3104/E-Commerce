@@ -43,4 +43,8 @@ export class HeaderComponent {
       relativeTo: this.activatedRoute,
     });
   }
+
+  orders() {
+    this.router.navigate(['user/orders']);
+  }
 }

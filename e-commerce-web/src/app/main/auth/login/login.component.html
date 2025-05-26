@@ -30,9 +30,6 @@
 
         <mat-error *ngIf="passwordField.invalid && (passwordField.touched || form.submitted)">
           <span *ngIf="passwordField.errors?.['required']">Password is required</span>
-          <span *ngIf="passwordField.errors?.['minlength']">
-            Password must be at least 8 characters
-          </span>
         </mat-error>
       </mat-form-field>
 

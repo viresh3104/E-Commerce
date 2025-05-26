@@ -1,5 +1,6 @@
 const CategoryM = require("../models/category.model");
 const ProductM = require("../models/product.model");
+const OrderM = require("../models/order.model");
 
 exports.CreateCategory = async (req, res) => {
   try {
@@ -83,4 +84,9 @@ exports.CreateProduct = async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
+};
+
+exports.getOrders = async (req, res) => {
+  const orders = await OrderM.find().populate("userId", "name email");
+  res.json(orders);
 };

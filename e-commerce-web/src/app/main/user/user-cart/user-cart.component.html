@@ -5,7 +5,7 @@
         <div class="left">
             <div class="product" *ngFor="let product of cart">
                 <div class="image">
-                    <img src="{{product.product.image_urls[3]}}" alt="">
+                    <img src="{{product.product.image_urls[0]}}" alt="">
                 </div>
                 <div class="details">
                     <div class="one">
@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="checkout">
-                <button>Place Order</button>
+                <button (click)="placeOrder()">Place Order</button>
             </div>
         </div>
     </div>

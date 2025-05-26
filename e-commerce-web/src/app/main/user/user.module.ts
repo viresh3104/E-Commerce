@@ -19,6 +19,7 @@ import { MatNativeDateModule } from '@angular/material/core'; // or MatMomentDat
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component'; // Add this
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     UserWishlistComponent,
     CategoryDetailComponent,
     ProductDetailComponent,
+    OrderDetailComponent,
   ],
   imports: [
     CommonModule,

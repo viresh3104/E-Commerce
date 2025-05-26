@@ -22,4 +22,8 @@ export class AdminService {
   createProduct(productFormData: any) {
     return this.http.post(`${this.apiUrl}/createproduct`, productFormData);
   }
+
+  getorders(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/orders`);
+  }
 }

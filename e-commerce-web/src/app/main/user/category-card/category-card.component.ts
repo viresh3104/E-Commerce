@@ -36,7 +36,7 @@ export class CategoryCardComponent {
   loadTopProducts() {
     this.userSerive.getProductsByCategory(this.category.category_id).subscribe(
       (products) => {
-        this.products = products.slice(0, 4);
+        this.products = products.slice(0, 5);
         console.log(this.products);
       },
       (error) => {

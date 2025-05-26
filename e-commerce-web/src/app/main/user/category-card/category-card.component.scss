@@ -1,13 +1,13 @@
 .category-swimlane {
   // border: 1px solid black;
-  margin: 1.5em 3em 1.5em 3em;
+  margin: 1.5em 0em 1.5em 0em;
   height: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 1em 0em;
-  height: 36em;
-  background-color: rgb(154, 161, 168);
-  border-radius: 1.5em;
+  background-color: rgb(135, 144, 151);
+  // border-radius: 1.5em;
   .heading {
     height: 2.5em;
     color: rgb(36, 35, 33);
@@ -15,7 +15,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     .category-name {
       font-size: 2em;
       font-weight: bold;
@@ -28,7 +28,7 @@
   .top-products {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding-left: 1em;
+    justify-content: start;
+    padding-left: 3em;
   }
 }
