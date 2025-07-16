@@ -2,7 +2,7 @@ B-Universal - Multi-Vendor SaaS E-Commerce Platform
 Welcome to B-Universal, a full-stack SaaS e-commerce platform designed to empower vendors to establish their online presence effortlessly. Built with Angular, Node.js, Express, and MongoDB, this project integrates Razorpay in test mode for simulated payments, offering a seamless shopping experience for users and a secure admin panel for order management. Created as part of my placement journey, this project showcases modern web development practices and problem-solving skills.
 
 Created By: [Your Name]
-Date: July 16, 2025, 05:43 PM IST
+Date: July 16, 2025, 05:46 PM IST
 GitHub: github.com/yourusername
 Live Demo: B-Universal Demo
 Overview
@@ -70,8 +70,7 @@ Run
 Copy
 cd server
 npm install
-Configure Environment Variables
-Create a .env file in the server directory with the following:
+Configure Environment Variables Create a .env file in the server directory with the following:
 text
 
 Collapse
@@ -121,6 +120,3 @@ Database Setup
 Ensure MongoDB is running locally or connected via MongoDB Atlas.
 The application automatically creates collections for users, orders, and carts based on the schemas.
 Usage
-As a User: Register or log in, browse products, add to cart, and place an order using the simulated payment process.
-As an Admin: Log in with an admin account (role: admin), navigate to the admin panel (/admin/orders), and view all orders.
-As a SuperAdmin: Manage admins and oversee the platform (future enhancement—currently handled by admin role).
